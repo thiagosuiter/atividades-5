@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário</title>
+</head>
+<body>
+
+  <form onsubmit="exibirDados(event)">
+    <input type="text" id="nome" placeholder="Nome" required><br><br>
+    <input type="email" id="email" placeholder="E-mail" required><br><br>
+    <textarea id="mensagem" placeholder="Mensagem" required></textarea><br><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <hr>
+
+  <div id="resultado"></div>
+
+  <script>
+    function exibirDados(event) {
+      event.preventDefault(); // Impede o recarregamento da página
+
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const mensagem = document.getElementById("mensagem").value;
+
+      document.getElementById("resultado").innerHTML = `
+        <p><strong>Nome:</strong> ${nome}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mensagem:</strong> ${mensagem}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
